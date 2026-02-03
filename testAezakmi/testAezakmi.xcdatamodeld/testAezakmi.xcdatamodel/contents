@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Device" representedClassName="Device" syncable="YES" codeGenerationType="class">
+        <attribute name="deviceType" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String"/>
+        <attribute name="macAddress" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rssi" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="scanSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScanSession" inverseName="devices" inverseEntity="ScanSession"/>
+    </entity>
+    <entity name="ScanSession" representedClassName="ScanSession" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Device" inverseName="scanSession" inverseEntity="Device"/>
+    </entity>
+</model>
